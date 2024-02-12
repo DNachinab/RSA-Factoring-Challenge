@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+
+import sys
+
+def fc():
+    """
+    function fc to search file to convert number and format n=p*q
+    """
+    try:
+        revfile = sys.argv[1]
+        with open(revfile) as x:
+            for revnumber in x:
+                revnumber = int(revnumber)
+                if revnumber % 2 == 0:
+                        print("{}={}*{}".format(revnumber, revnumber // 2, 2))
+                        continue
+                a = 3
+                while a < revnumber // 2:
+                    if revnumber % a == 0:
+                        print("{}={}*{}".format(revnumber, revnumber // a, a))
+                        break
+                    a = a + 2
+                if a == (revnumber // 2) + 1:
+                    print("{}={}*{}".format(revnumber, revnumber, 1))
+    except (IndexError):
+        pass
+
+fc()
